@@ -5,17 +5,15 @@ export const GameSlice = createSlice({
   name: 'Game',
   initialState: {
     grid: {
-      pixel: {
-        dimensions: {
-          width: 0,
+      dimensions: {
+        pixel: {
           height: 0,
-        }
-      },
-      tile: {
-        dimensions: {
           width: 0,
+        },
+        tile: {
           height: 0,
-        }
+          width: 0,
+        },
       },
       map: {
         name: "Untitled Map",
@@ -38,10 +36,14 @@ export const GameSlice = createSlice({
   },
   reducers: {
     setGridPixelDimensions: (state, action) => {
-      state.grid.pixel.dimensions = action.payload;
+      state.grid.dimensions.pixel = action.payload;
     },
     setGridTileDimensions: (state, action) => {
-      state.grid.tile.dimensions = action.payload;
+      state.grid.dimensions.tile = action.payload;
+    },
+    setGridDimensions: (state, action) => {
+      state.grid.dimensions.pixel = action.payload.pixel;
+      state.grid.dimensions.tile = action.payload.tile;
     },
     setGridMap: (state, action) => {
       state.grid.map = action.payload;
@@ -83,6 +85,7 @@ export const GameSlice = createSlice({
 export const { 
   setGridPixelDimensions, 
   setGridTileDimensions,
+  setGridDimensions,
   setGridMap,
   setGridMapLayers,
   setGridMapStartingPoint,

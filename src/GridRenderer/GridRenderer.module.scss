@@ -1,8 +1,16 @@
 .GridRenderer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 49px);
+  grid-template-rows: repeat(auto-fill, 49px);
+  grid-gap: 0px;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 5px;
+  justify-items: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: #323232;
+  align-content: center;
+  align-self: center;
+  justify-self: center;
+  background-color: #2a65a0;
+  border: .5px solid rgb(255, 209, 122);
 }

@@ -8,11 +8,14 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import './index.scss';
 
-import { GridRenderer } from './GridRenderer/GridRenderer';
+import { GridFrame } from './GridFrame/GridFrame';
+import DevSliceReducer from './DevTools/Dev.slice';
 import GameSliceReducer from './Game/Game.slice';
+import { DevTools } from './DevTools/DevTools';
 
 const _AppStore = configureStore({
   reducer: {
+    Dev: DevSliceReducer,
     Game: GameSliceReducer,
   }
 });
@@ -23,9 +26,12 @@ const useAppStoreDispatch = () => useDispatch();
 const useAppStoreSelector = useSelector;
 
 const App: React.FC = () => {
+
   return (
     <div id="app">
-      <GridRenderer />
+      <DevTools />
+
+      <GridFrame />
       {/* <DevConsole /> */}
     </div>
   );
